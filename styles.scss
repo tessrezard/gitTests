@@ -1,3 +1,36 @@
 html {
     font-size: 16px;
 }
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+main {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+$base-color: #80e189; // Set your base color
+
+.huedContainer {
+  $num-paragraphs: 5; // Set the number of <p>s
+
+  // Loop to generate styles for each <p>
+  @for $i from 1 through $num-paragraphs {
+    // Calculate a (slightly) different hue for each paragraph
+    $hue: 20 * $i;
+
+    // Apply the styles to each paragraph
+    p:nth-child(#{$i}) {
+        background-color: adjust-hue($base-color, $hue);
+        color: #fff; // Adjust text color as needed
+      padding: 10px;
+      margin: 5px;
+    }
+  }
+}
